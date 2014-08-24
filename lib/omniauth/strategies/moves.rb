@@ -7,8 +7,8 @@ module OmniAuth
 
       option :client_options, {
         :site => 'https://api.moves-app.com/',
-        :authorize_url => '/oauth/v1/authorize',
-        :token_url => '/oauth/v1/access_token'
+        :authorize_url => '/api/1.1/authorize',
+        :token_url => '/api/1.1/access_token'
       }
       
       uid { raw_info['userId'] }
@@ -25,7 +25,7 @@ module OmniAuth
       end
       
       def raw_info
-        @raw_info ||= access_token.get('https://api.moves-app.com/api/v1/user/profile').parsed
+        @raw_info ||= access_token.get('https://api.moves-app.com/api/1.1/user/profile').parsed
       end
       
       private
