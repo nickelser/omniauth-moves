@@ -28,6 +28,10 @@ module OmniAuth
         @raw_info ||= access_token.get('https://api.moves-app.com/api/v1/user/profile').parsed
       end
       
+      def callback_url
+        full_host + script_name + callback_path
+      end
+
       private
       
       def client_params
